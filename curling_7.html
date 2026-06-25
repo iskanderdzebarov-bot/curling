@@ -206,23 +206,24 @@
       border-radius: 10px;
     }
 
-    /* controls: row 1 — hints + gauge; row 2 — menu button */
+    /* controls: grid — row 1: hints + gauge; row 2: menu button */
     #controls{
       order: 2;
       width: 100%;
-      max-width: unset;
-      flex-direction: row;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      grid-template-rows: auto auto;
+      grid-template-areas:
+        "instruction gauge"
+        "menu        menu";
       align-items: center;
-      justify-content: space-between;
       padding: 0 2px;
       gap: 6px;
       flex-shrink: 0;
-      height: auto;
     }
 
     #menuBtn{
-      order: 3;
+      grid-area: menu;
       width: 100%;
       padding: 11px 14px;
       font-size: 13px;
@@ -232,8 +233,7 @@
     }
 
     #instruction{
-      order: 1;
-      flex: 1;
+      grid-area: instruction;
       font-size: 11px;
       text-align: center;
       line-height: 1.35;
@@ -241,7 +241,7 @@
 
     /* gauge goes horizontal on mobile */
     #gaugeWrap{
-      order: 2;
+      grid-area: gauge;
       flex-direction: row;
       align-items: center;
       gap: 5px;
