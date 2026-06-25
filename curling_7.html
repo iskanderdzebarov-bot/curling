@@ -197,39 +197,42 @@
     #stage{
       order: 1;
       width: 100%;
-      /* leave ~76px for the control strip + gaps */
+      /* leave ~100px for the 2-row control strip + gaps */
       height: min(
         calc(100vw * 760 / 460),
-        calc(100vh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px) - 130px)
+        calc(100vh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px) - 162px)
       );
       aspect-ratio: unset; /* height is explicit, width=100% */
       border-radius: 10px;
     }
 
-    /* compact horizontal controls strip */
+    /* controls: row 1 — hints + gauge; row 2 — menu button */
     #controls{
       order: 2;
       width: 100%;
       max-width: unset;
       flex-direction: row;
+      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
       padding: 0 2px;
-      gap: 8px;
+      gap: 6px;
       flex-shrink: 0;
-      height: 64px;
+      height: auto;
     }
 
     #menuBtn{
-      width: auto;
-      flex-shrink: 0;
-      padding: 10px 14px;
-      font-size: 12px;
+      order: 3;
+      width: 100%;
+      padding: 11px 14px;
+      font-size: 13px;
       border-radius: 22px;
       white-space: nowrap;
+      text-align: center;
     }
 
     #instruction{
+      order: 1;
       flex: 1;
       font-size: 11px;
       text-align: center;
@@ -238,6 +241,7 @@
 
     /* gauge goes horizontal on mobile */
     #gaugeWrap{
+      order: 2;
       flex-direction: row;
       align-items: center;
       gap: 5px;
