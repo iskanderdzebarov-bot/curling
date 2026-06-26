@@ -580,7 +580,51 @@
     .how-inner         { grid-template-columns: 1fr; gap: 24px; }
   }
 
-  /* ══ REDUCED MOTION ══ */
+  /* ══ ASK BUTTON ══ */
+  .ask-block {
+    margin-top: 36px;
+    padding: 28px 24px;
+    background: var(--navy-3);
+    border: 1px solid var(--panel-edge);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .ask-text {
+    font-size: 15px;
+    color: var(--text-dim);
+    line-height: 1.5;
+    flex: 1;
+    min-width: 200px;
+  }
+  .btn-ask {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: var(--cyan);
+    font-weight: 700;
+    font-size: 14px;
+    padding: 13px 28px;
+    border-radius: 32px;
+    border: 1.5px solid var(--cyan);
+    text-decoration: none;
+    white-space: nowrap;
+    min-height: 48px;
+    transition: background 0.15s, color 0.15s;
+    flex-shrink: 0;
+  }
+  .btn-ask:hover {
+    background: var(--cyan);
+    color: var(--navy);
+  }
+  @media (max-width: 480px) {
+    .ask-block { flex-direction: column; align-items: flex-start; }
+    .btn-ask   { width: 100%; justify-content: center; }
+  }
   @media (prefers-reduced-motion: reduce) {
     .stone, .bulb, .rink-preview svg, .hero-rings { animation: none; }
     html { scroll-behavior: auto; }
@@ -979,10 +1023,21 @@
         <p class="faq-a">Партия состоит из 4 эндов. В каждом энде каждый игрок бросает по 4 камня. Побеждает тот, кто наберёт больше очков за все 4 энда.</p>
       </details>
     </div>
+
+    <div class="ask-block">
+      <p class="ask-text">Не нашёл ответ? Спроси у разработчика — отвечу лично.</p>
+      <a
+        href="https://docs.google.com/forms/d/e/1FAIpQLSdbZDnsy6NCJHkLV5nFX_J1Jp29tV1ZKnAV3VilxNy0BweT8w/viewform?usp=publish-editor"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-ask"
+        aria-label="Задать вопрос разработчику"
+      >
+        ✉️ Задать вопрос
+      </a>
+    </div>
   </div>
 </section>
-
-<!-- CTA BOTTOM -->
 <section class="cta-section" aria-labelledby="cta-heading">
   <div class="cta-inner">
     <div class="bulb-row" aria-hidden="true">
